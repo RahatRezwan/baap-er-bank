@@ -12,6 +12,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
     //verfy email and password:
     if (userEmail === "baaperbeta@gmail.com" && userPassword === "baaperbank1234") {
         alert("Welcome to BAAP ER BANK");
+        location.href = "bank.html";
     } else {
         alert("Invalid User");
     }
