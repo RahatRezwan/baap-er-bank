@@ -23,18 +23,24 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
     //get the withdraw amount
     const withdrawField = document.getElementById("withdraw");
     const withdrawAmount = parseInt(withdrawField.value);
-
+    //balance section
+    const balanceSection = document.getElementById("balance-amount");
+    const totalBalance = parseInt(balanceSection.innerText);
     //error if withdraw field is empty
     if (withdrawField.value === "") {
         alert("Withdraw Field Cannot Be Empty");
     } else {
-        //set the withdraw amount to the withdraw section and deduct amount from balance section
-        const withdrawSection = document.getElementById("withdraw-amount");
-        withdrawSection.innerText = parseInt(withdrawSection.innerText) + withdrawAmount;
-        //balance section
-        const balanceSection = document.getElementById("balance-amount");
-        balanceSection.innerText = parseInt(balanceSection.innerText) - withdrawAmount;
-        withdrawField.value = "";
+        if (withdrawAmount < totalBalance) {
+            //set the withdraw amount to the withdraw section and deduct amount from balance section
+            const withdrawSection = document.getElementById("withdraw-amount");
+            withdrawSection.innerText = parseInt(withdrawSection.innerText) + withdrawAmount;
+            //Update amount in balance section
+            balanceSection.innerText = totalBalance - withdrawAmount;
+            withdrawField.value = "";
+        } else {
+            alert("You Don't have sufficient Balance");
+            withdrawField.value = "";
+        }
     }
 });
 
