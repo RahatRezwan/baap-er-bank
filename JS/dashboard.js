@@ -37,3 +37,8 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
         withdrawField.value = "";
     }
 });
+
+//On click logout button:
+document.getElementById("log-out").addEventListener("click", function () {
+    location.href = "index.html";
+});
