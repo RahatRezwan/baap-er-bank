@@ -1,4 +1,18 @@
 document.getElementById("login-btn").addEventListener("click", function () {
-    let userEmail = document.getElementById("email");
-    let userPassword = document.getElementById("password");
+    //get the user email from the email input field
+    const emailField = document.getElementById("email");
+    const userEmail = emailField.value;
+
+    //get the user password from the password input field
+    const passwordField = document.getElementById("password");
+    const userPassword = passwordField.value;
+
+    //DANGER: DO NOT VERIFY email and password  ON THE CLIENT SIDE.
+
+    //verfy email and password:
+    if (userEmail === "baaperbeta@gmail.com" && userPassword === "baaperbank1234") {
+        alert("Welcome to BAAP ER BANK");
+    } else {
+        alert("Invalid User");
+    }
 });
